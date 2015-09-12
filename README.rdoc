@@ -1,0 +1,33 @@
+== README
+
+Ruby on Rails 4 app that filters tweets from a location specified by the user. It utilizes the Twitter Streaming API.
+
+-Elasticsearch for tweets:
+ 1. Setup mapping that indexes a tweets collection
+ 2. The coordinates properties will be mapped as the geo_point type with geohash filtering
+ 3. Use of geohash_cell and cache filter to ensure fast query
+
+-Create a rake task that:
+ 1. Consumes the Twitter Public Stream API, insert tweets into Elasticsearch
+
+-On a simple Rails page, the user should be able to:
+ 1. Enter the lat/long coordinates with an radius in a form
+ 2. See top 250 tweets within that area, sorted descendingly by time
+ 3. Additionally, tweets can be filtered within the above area with a specific hangtag (i.e.: #amazing, #super, #obama, etc)
+
+Requirements:
+-Ruby 2, Rails 4, Elasticsearch-Persistence
+-TDD with RSpec
+-Git/Github, commit often with comments
+-Deploy functional app to Heroku
+
+Resources:
+=========
+https://github.com/tweetstream/tweetstream
+https://www.elastic.co/guide/en/elasticsearch/client/ruby-api/current/_persistence.html
+https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-geohash-cell-filter.html
+
+Bonus:
+=====
+Display pins on the map, https://github.com/apneadiving/Google-Maps-for-Rails
+
